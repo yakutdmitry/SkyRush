@@ -789,6 +789,91 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5950292348358331270, guid: 9075923ba99aebb4d8236876cae17f37, type: 3}
   m_PrefabInstance: {fileID: 351105765}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1156188905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4874503900637427852, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
+  m_PrefabInstance: {fileID: 5438996668257603004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1156188907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156188905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 909543f0359a70c43b1e40ce8e8b1464, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerInput
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1156188908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156188905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c82e42e9dca65449af1f49f20b9ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  TiltAction: {fileID: -1236731627289296828, guid: 909543f0359a70c43b1e40ce8e8b1464, type: 3}
+  Wings: {fileID: -20728995653189497, guid: 909543f0359a70c43b1e40ce8e8b1464, type: 3}
+  left: {fileID: -417873876596004460, guid: 909543f0359a70c43b1e40ce8e8b1464, type: 3}
+  right: {fileID: -3514723593340452369, guid: 909543f0359a70c43b1e40ce8e8b1464, type: 3}
+  TiltSpeed: 100
+  WingsSpeed: 100
+  tiltValue: 0
+  WingsValue: 0
+  leftPressed: 0
+  rightPressed: 0
+  bothPressed: 0
+--- !u!54 &1156188909
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156188905}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1183094264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1079,7 +1164,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4874503900637427852, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1156188909}
+    - targetCorrespondingSourceObject: {fileID: 4874503900637427852, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1156188908}
+    - targetCorrespondingSourceObject: {fileID: 4874503900637427852, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1156188907}
   m_SourcePrefab: {fileID: 100100000, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
 --- !u!1001 &8709909097709422584
 PrefabInstance:
