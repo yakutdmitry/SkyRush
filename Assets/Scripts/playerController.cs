@@ -6,12 +6,16 @@ public class playerController : MonoBehaviour
 {
     public InputActionReference TiltAction, Wings, left, right;
     // public InputActionReference Wings;
-    public float TiltSpeed, WingsSpeed = 100f;
+    public float TiltSpeed, WingsSpeed, jumpForce, jumpAngleZ;
     public float tiltValue, WingsValue;
     [SerializeField] private bool leftPressed, rightPressed, bothPressed;
-    
-    
-    
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     private void Update()
     {
 
@@ -20,6 +24,13 @@ public class playerController : MonoBehaviour
         if (!bothPressed)
         {
             transform.Rotate(Vector3.forward, WingsValue * WingsSpeed * Time.deltaTime);
+        }
+
+        if (bothPressed)
+        {
+            Vector3 localDirection = new Vector3(0, 1, jumpAngleZ).normalized;
+            Vector3 WorldDirection = transform.TransformDirection(localDirection);
+            rb.AddForce(WorldDirection * jumpForce, ForceMode.Impulse);
         }
 
         WingsValue = Wings.action.ReadValue<float>();
