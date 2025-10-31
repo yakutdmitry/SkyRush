@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public InputActionReference spawnAction;
     public Vector3 offset = new Vector3(10, 0, 0);
     private int firstLevelIndex = 0;
-    private int numOfLevels; 
+    [SerializeField] private int numOfLevels; 
     private int spawnLimit = 10;
     public CircleSpawn CircleSpawn;
     private void Update()

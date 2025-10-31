@@ -9,6 +9,7 @@ public class CircleSpawn : MonoBehaviour
     public GameObject Instance;
     public List<GameObject> Levels = new List<GameObject>();
     public InputActionReference spawnAction;
+    public Collider Collider;
     
     public float minX = -5f;
     public float maxX = 5f;
@@ -20,6 +21,11 @@ public class CircleSpawn : MonoBehaviour
     private int spawnLimit = 10;
     private int targetIndex = 0;
 
+    private void Start()
+    {
+        // Collider = GetComponentInChildren<Collider>();
+    }
+
     private void Update()
     {
         if (circlesSpawned == spawnLimit)
@@ -30,9 +36,12 @@ public class CircleSpawn : MonoBehaviour
         }
     }
 
-	
+    private void OnTriggerEnter(Collider other)
+    {
+        SpawnNextLevel();
+    }
 
-    public void SpawnNextLevel(InputAction.CallbackContext context)
+    public void SpawnNextLevel()//(InputAction.CallbackContext context)
     {
         Vector3 basePosition;
 
@@ -57,16 +66,16 @@ public class CircleSpawn : MonoBehaviour
         circlesSpawned++;
     }
     
-    private void OnEnable()
-    {
-        spawnAction.action.started += SpawnNextLevel;
-    }
-
-    private void OnDisable()
-    {
-        spawnAction.action.started -= SpawnNextLevel;
-    }
-    
-    
+    // private void OnEnable()
+    // {
+    //     spawnAction.action.started += SpawnNextLevel;
+    // }
+    //
+    // private void OnDisable()
+    // {
+    //     spawnAction.action.started -= SpawnNextLevel;
+    // }
+    //
+    //
     
 }
