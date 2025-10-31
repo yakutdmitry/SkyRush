@@ -30,6 +30,8 @@ public class CircleSpawn : MonoBehaviour
         }
     }
 
+	
+
     public void SpawnNextLevel(InputAction.CallbackContext context)
     {
         Vector3 basePosition;
@@ -64,5 +66,7 @@ public class CircleSpawn : MonoBehaviour
     {
         spawnAction.action.started -= SpawnNextLevel;
     }
+    
+    
     
 }
