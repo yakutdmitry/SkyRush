@@ -86,7 +86,7 @@
                 {
                     "name": "negative",
                     "id": "32f8117f-d85c-4d20-bd19-2bb041fffcb9",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -97,7 +97,7 @@
                 {
                     "name": "positive",
                     "id": "14cf0a71-22f7-42a3-962d-2a65191e5bf9",
-                    "path": "<Keyboard>/upArrow",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

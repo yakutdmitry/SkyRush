@@ -6,10 +6,12 @@ using Random = UnityEngine.Random;
 
 public class CircleSpawn : MonoBehaviour
 {
+    public playerController _PlayerController;
     public GameObject Instance;
     public List<GameObject> Levels = new List<GameObject>();
     public InputActionReference spawnAction;
-    [SerializeField] private Collider Collider;
+    
+    // [SerializeField] private Collider Collider;
     
     public float minX = -5f;
     public float maxX = 5f;
@@ -23,7 +25,7 @@ public class CircleSpawn : MonoBehaviour
 
     private void Start()
     {
-        Collider = GetComponentInChildren<Collider>();
+        // Collider = GetComponentInChildren<Collider>();
     }
 
     private void Update()
@@ -38,7 +40,12 @@ public class CircleSpawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SpawnNextLevel();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player Detected");
+            _PlayerController.Collected = true;
+            SpawnNextLevel();
+        }
     }
 
     public void SpawnNextLevel()//(InputAction.CallbackContext context)
@@ -59,9 +66,9 @@ public class CircleSpawn : MonoBehaviour
         float newZ = basePosition.z + zOffset;
 
         Vector3 spawnPosition = new Vector3(randomX, randomY, newZ);
-
+            
         Levels.Add(Instantiate(Instance, spawnPosition, Quaternion.identity));
-        
+        Destroy(Levels[Levels.Count - 2]);
 
         circlesSpawned++;
     }
