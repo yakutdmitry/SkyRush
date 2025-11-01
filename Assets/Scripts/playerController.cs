@@ -7,16 +7,17 @@ using UnityEngine.InputSystem;
 public class playerController : MonoBehaviour
 {
     public InputActionReference TiltAction, Wings, left, right;
-    // public InputActionReference Wings;
     public float TiltSpeed, WingsSpeed, jumpForce;
     public float tiltValue, WingsValue;
-    [SerializeField] private bool leftPressed, rightPressed, bothPressed;
+    private bool leftPressed, rightPressed, bothPressed;
     private Rigidbody rb;
+    private Animator _animator;
     public bool Collected = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private bool justJumped = false;
@@ -30,11 +31,14 @@ public class playerController : MonoBehaviour
 
         if (!bothPressed)
         {
+            _animator.SetBool("Jump", false);
             transform.Rotate(Vector3.forward, WingsValue * WingsSpeed * Time.deltaTime);
         }
 
         if (bothPressed)
         {
+            _animator.SetBool("Jump", true);
+            
             Vector3 angledDirection = (transform.forward + Vector3.up * -0.25f).normalized;
 
             rb.AddForce(angledDirection * jumpForce, ForceMode.Impulse);

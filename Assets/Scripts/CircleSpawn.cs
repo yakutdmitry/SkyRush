@@ -9,7 +9,7 @@ public class CircleSpawn : MonoBehaviour
     public playerController _PlayerController;
     public GameObject Instance;
     public List<GameObject> Levels = new List<GameObject>();
-    public InputActionReference spawnAction;
+    
     
     // [SerializeField] private Collider Collider;
     
