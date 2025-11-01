@@ -1,4 +1,6 @@
 using System;
+using NUnit.Framework.Internal.Filters;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,7 +30,8 @@ public class playerController : MonoBehaviour
 
         if (bothPressed)
         {
-            Vector3 localDirection = new Vector3(0, 1, jumpAngleZ).normalized;
+            float zAngle = Mathf.Deg2Rad * jumpAngleZ;
+            Vector3 localDirection = new Vector3(0, MathF.Cos(zAngle), MathF.Sin(zAngle)).normalized;
             Vector3 WorldDirection = transform.TransformDirection(localDirection);
             rb.AddForce(WorldDirection * jumpForce, ForceMode.Impulse);
         }

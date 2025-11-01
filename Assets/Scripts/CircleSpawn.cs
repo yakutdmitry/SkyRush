@@ -9,7 +9,7 @@ public class CircleSpawn : MonoBehaviour
     public GameObject Instance;
     public List<GameObject> Levels = new List<GameObject>();
     public InputActionReference spawnAction;
-    public Collider Collider;
+    [SerializeField] private Collider Collider;
     
     public float minX = -5f;
     public float maxX = 5f;
@@ -23,7 +23,7 @@ public class CircleSpawn : MonoBehaviour
 
     private void Start()
     {
-        // Collider = GetComponentInChildren<Collider>();
+        Collider = GetComponentInChildren<Collider>();
     }
 
     private void Update()
