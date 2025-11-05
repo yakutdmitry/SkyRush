@@ -3,6 +3,7 @@ using NUnit.Framework.Internal.Filters;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class playerController : MonoBehaviour
     public float tiltValue, WingsValue;
     private bool leftPressed, rightPressed, bothPressed;
     private Rigidbody rb;
+    private Collider collider;
     private Animator _animator;
     public bool Collected = false;
 
@@ -18,6 +20,11 @@ public class playerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
+        collider = GetComponentInChildren<Collider>();
+        
+        Vector3 angledDirection = (transform.forward + Vector3.up * -0.5f).normalized;
+        rb.AddForce(angledDirection * jumpForce, ForceMode.Impulse);
+
     }
 
     private bool justJumped = false;
@@ -73,5 +80,8 @@ public class playerController : MonoBehaviour
         rb.linearVelocity = newHorizontal + vertical;
     }
 
-
+    private void OnCollisionEnter(Collision other)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Trigger : MonoBehaviour
 {
@@ -23,7 +25,7 @@ public class Trigger : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player") && !_PlayerController.Collected)
         {
-            Debug.Log("Miss");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
