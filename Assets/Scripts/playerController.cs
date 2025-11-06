@@ -15,6 +15,7 @@ public class playerController : MonoBehaviour
     private Animator _animator;
     public bool Collected = false;
     public float targetZAngle = 45f;
+    public int count;
     
 
     private void Start()
@@ -35,6 +36,7 @@ public class playerController : MonoBehaviour
 
         WingsValue = Wings.action.ReadValue<float>();
         tiltValue = TiltAction.action.ReadValue<float>();
+        
 
         if (!bothPressed)
         {

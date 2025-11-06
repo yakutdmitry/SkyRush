@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7337107152121129297}
   - component: {fileID: 4370256782294671705}
+  - component: {fileID: 6055299053575538268}
   m_Layer: 0
   m_Name: Target
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.4331203, y: 29.92124, z: -32.81574}
-  m_LocalScale: {x: 1.5808, y: 1.5808, z: 1.5808}
+  m_LocalScale: {x: 14.442281, y: 14.442281, z: 14.442281}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 230035664371339757}
@@ -45,16 +46,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabc5ca47bc213c4a9990af4217ab432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  _PlayerController: {fileID: 0}
   Instance: {fileID: 2147380128064884448}
   Levels:
   - {fileID: 2147380128064884448}
-  spawnAction: {fileID: -7241465970013947618, guid: 909543f0359a70c43b1e40ce8e8b1464, type: 3}
-  Collider: {fileID: 0}
-  minX: -25
-  maxX: 25
-  minY: 5
+  minX: -5
+  maxX: 15
+  minY: 10
   maxY: 30
-  zOffset: -100
+  zOffset: 400
+--- !u!64 &6055299053575538268
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147380128064884448}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3298800115395149385, guid: 6b9326a4fb7d4db4cad4c52b4d927fc4, type: 3}
 --- !u!1001 &341140296009725446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,15 +87,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6b9326a4fb7d4db4cad4c52b4d927fc4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.5339055
+      value: 0.7556188
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b9326a4fb7d4db4cad4c52b4d927fc4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.5339055
+      value: 0.7556188
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b9326a4fb7d4db4cad4c52b4d927fc4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.5339055
+      value: 0.7556188
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b9326a4fb7d4db4cad4c52b4d927fc4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -123,6 +145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tonus
       objectReference: {fileID: 0}
+    - target: {fileID: 4860884733252827142, guid: 6b9326a4fb7d4db4cad4c52b4d927fc4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -151,7 +177,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
