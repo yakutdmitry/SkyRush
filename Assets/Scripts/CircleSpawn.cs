@@ -23,7 +23,7 @@ public class CircleSpawn : MonoBehaviour
     private int circlesSpawned = 1;
     private int spawnLimit = 10;
     private int targetIndex = 0;
-    
+    private bool triggered = false;
 
     private void Start()
     {
@@ -50,45 +50,47 @@ public class CircleSpawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (triggered)
         {
-            _PlayerController.Collected = true;
-            Debug.Log("Player Detected");
-            
-            if (_PlayerController.count >= 5)
-            {
-                _PlayerController.count = 7;
-            }
-
-            if (_PlayerController.count < 5)
-            {
-                _PlayerController.count += 1.5f;
-            }
-            
-            SpawnNextLevel();
+            return;
         }
+        else
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                triggered = true;
+                _PlayerController.Collected = true;
+                Debug.Log("Player Detected");
+            
+                if (_PlayerController.count >= 5)
+                {
+                    _PlayerController.count = 7;
+                }
+
+                if (_PlayerController.count < 5)
+                {
+                    _PlayerController.count += 1.5f;
+                }
+            
+                SpawnNextLevel();
+            }
+        }
+        
     }
 
     public void SpawnNextLevel()//(InputAction.CallbackContext context)
     {
-        Vector3 basePosition;
-
-        if (Levels.Count == 0)
-        {
-            basePosition = Vector3.zero;
-        }
-        else
-        {
-            basePosition = Levels[Levels.Count -1].transform.position;
-        }
-
+        Vector3 basePosition = GameObject.FindWithTag("Player").transform.position;
+        // Vector3 basePosition = Levels[Levels.Count -1].transform.position;
+        Debug.Log(basePosition);
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);
         float newZ = basePosition.z + zOffset;
-
+        Debug.Log("NewZ" + ' ' + newZ);
         Vector3 spawnPosition = new Vector3(randomX, randomY, newZ);
         GameObject newInstance = Instantiate(Instance, spawnPosition, Quaternion.identity);
         newInstance.name = "Target_" + circlesSpawned ;
+        Debug.Log("Instance pos " + newInstance.transform.position);
         Levels.Add(newInstance);
         Destroy(Levels[Levels.Count - 2]);
         

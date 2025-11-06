@@ -53,7 +53,7 @@ MonoBehaviour:
   maxX: 25
   minY: 60
   maxY: 100
-  zOffset: 100
+  zOffset: 300
 --- !u!64 &6055299053575538268
 MeshCollider:
   m_ObjectHideFlags: 0

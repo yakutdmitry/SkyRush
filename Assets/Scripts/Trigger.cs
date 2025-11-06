@@ -19,6 +19,7 @@ public class Trigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _PlayerController.count -= 1f;
+            
         }
         
         Debug.Log("Collision");
@@ -30,7 +31,7 @@ public class Trigger : MonoBehaviour
             Debug.Log("AAAAA");
         }
 
-        else 
+        else if(_PlayerController.count % 2 == 0)
         {
             Debug.Log("BBBBBB");
             _GameManager.Spawn();
