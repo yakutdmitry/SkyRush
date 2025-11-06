@@ -1011,11 +1011,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 980755320884859223, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
       propertyPath: jumpForce
-      value: -10
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 980755320884859223, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
       propertyPath: jumpAngleZ
       value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 980755320884859223, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
+      propertyPath: horizontalSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3356536290305323094, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 3356536290305323094, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.65
       objectReference: {fileID: 0}
     - target: {fileID: 4594526585193466175, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1123,15 +1135,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4370256782294671705, guid: bf451bf574030b54fa8567f188c5e7f4, type: 3}
       propertyPath: maxX
-      value: 15
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370256782294671705, guid: bf451bf574030b54fa8567f188c5e7f4, type: 3}
+      propertyPath: maxY
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4370256782294671705, guid: bf451bf574030b54fa8567f188c5e7f4, type: 3}
       propertyPath: minX
-      value: -5
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 4370256782294671705, guid: bf451bf574030b54fa8567f188c5e7f4, type: 3}
       propertyPath: minY
-      value: 10
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4370256782294671705, guid: bf451bf574030b54fa8567f188c5e7f4, type: 3}
       propertyPath: zOffset

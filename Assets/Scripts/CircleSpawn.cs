@@ -54,7 +54,8 @@ public class CircleSpawn : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player Detected");
-            _PlayerController.count = 7;
+            if (_PlayerController.count >= 5) {_PlayerController.count = 7;}
+            else {_PlayerController.count += 3;}
             SpawnNextLevel();
         }
     }

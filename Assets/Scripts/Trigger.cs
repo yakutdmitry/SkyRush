@@ -37,7 +37,7 @@ public class Trigger : MonoBehaviour
             _GameManager.Spawn();
             _PlayerController.count--;
             Debug.Log(_PlayerController.count);
-            circleSpawn = GameObject.Find("Target_" + _PlayerController.circlesCount + 1 + "(Clone)").GetComponent<CircleSpawn>();
+            circleSpawn = GameObject.FindWithTag("Target").GetComponent<CircleSpawn>();
             circleSpawn.SpawnNextLevel();
             Debug.Log(circleSpawn);
         }
