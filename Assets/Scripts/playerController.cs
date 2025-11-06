@@ -8,19 +8,19 @@ using UnityEngine.SceneManagement;
 public class playerController : MonoBehaviour
 {
     public InputActionReference TiltAction, Wings, left, right;
-    public float TiltSpeed, WingsSpeed, jumpForce;
+    public float TiltSpeed, WingsSpeed, jumpForce, horizontalSpeed;
     public float tiltValue, WingsValue;
     private bool leftPressed, rightPressed, bothPressed;
     private Rigidbody rb;
-    private Collider collider;
     private Animator _animator;
     public bool Collected = false;
+    public float targetZAngle = 45f;
+    
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
-        collider = GetComponentInChildren<Collider>();
         
         Vector3 angledDirection = (transform.forward + Vector3.up * -0.5f).normalized;
         rb.AddForce(angledDirection * jumpForce, ForceMode.Impulse);
@@ -38,8 +38,18 @@ public class playerController : MonoBehaviour
 
         if (!bothPressed)
         {
+            float currentZ = transform.localEulerAngles.z;
+            float targetZ = targetZAngle * WingsValue;
+
+            if (currentZ > 180f) currentZ -= 360f;
+            
+            float newZ = Mathf.MoveTowards(currentZ, targetZ, WingsSpeed * Time.deltaTime);
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, newZ);
+            transform.position += Vector3.right * horizontalSpeed * WingsValue * Time.deltaTime;
+            
             _animator.SetBool("Jump", false);
-            transform.Rotate(Vector3.forward, WingsValue * WingsSpeed * Time.deltaTime);
+            
+            // transform.Rotate(Vector3.forward, WingsValue * WingsSpeed * Time.deltaTime);
         }
 
         if (bothPressed)

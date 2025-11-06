@@ -25,7 +25,7 @@ public class CircleSpawn : MonoBehaviour
 
     private void Start()
     {
-        // Collider = GetComponentInChildren<Collider>();
+        _PlayerController = GameObject.Find("Player").GetComponent<playerController>();
     }
 
     private void Update()
