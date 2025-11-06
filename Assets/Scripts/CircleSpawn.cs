@@ -32,7 +32,7 @@ public class CircleSpawn : MonoBehaviour
         if (!Levels.Contains(gameObject))
         {
             Levels.Add(gameObject);
-            gameObject.name = "Target_0"; 
+            gameObject.name = "Target_1"; 
         }
 
     }
@@ -89,7 +89,7 @@ public class CircleSpawn : MonoBehaviour
         Vector3 spawnPosition = new Vector3(randomX, randomY, newZ);
         GameObject newInstance = Instantiate(Instance, spawnPosition, Quaternion.identity);
         newInstance.name = "Target_" + circlesSpawned ;
-        Levels.Add(Instantiate(newInstance));
+        Levels.Add(newInstance);
         Destroy(Levels[Levels.Count - 2]);
         
         

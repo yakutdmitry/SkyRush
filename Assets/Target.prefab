@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7337107152121129297}
   - component: {fileID: 4370256782294671705}
   - component: {fileID: 6055299053575538268}
+  - component: {fileID: 5112646073093092229}
   m_Layer: 0
   m_Name: Target
   m_TagString: Target
@@ -48,14 +49,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _PlayerController: {fileID: 0}
   Instance: {fileID: 2147380128064884448}
-  Levels:
-  - {fileID: 2147380128064884448}
-  minX: -5
-  maxX: 15
-  minY: 10
-  maxY: 30
-  zOffset: 400
+  minX: -25
+  maxX: 25
+  minY: 60
+  maxY: 100
+  zOffset: 100
 --- !u!64 &6055299053575538268
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147380128064884448}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3298800115395149385, guid: 6b9326a4fb7d4db4cad4c52b4d927fc4, type: 3}
+--- !u!64 &5112646073093092229
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
