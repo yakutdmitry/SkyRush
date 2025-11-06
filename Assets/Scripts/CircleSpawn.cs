@@ -40,7 +40,6 @@ public class CircleSpawn : MonoBehaviour
     private void Update()
     {
         _PlayerController.circlesCount = circlesSpawned;
-        if (_PlayerController.count != 0) _PlayerController.Collected = true;
         if (circlesSpawned == spawnLimit)
         {
             Destroy(Levels[targetIndex]);
@@ -53,9 +52,9 @@ public class CircleSpawn : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            _PlayerController.Collected = true;
             Debug.Log("Player Detected");
-            if (_PlayerController.count >= 5) {_PlayerController.count = 7;}
-            else {_PlayerController.count += 3;}
+            
             SpawnNextLevel();
         }
     }
@@ -83,7 +82,15 @@ public class CircleSpawn : MonoBehaviour
         Levels.Add(Instantiate(newInstance));
         Destroy(Levels[Levels.Count - 2]);
         
-        
+        if (_PlayerController.count >= 5)
+        {
+            _PlayerController.count = 7;
+        }
+
+        if (_PlayerController.count < 5)
+        {
+            _PlayerController.count += 0.5f;
+        }
 
         circlesSpawned++;
     }

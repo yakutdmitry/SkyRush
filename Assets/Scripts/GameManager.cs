@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     public void Spawn()
     {
         
-        _PlayerController.Collected = false;
         Debug.Log("Spawn");
         Vector3 SpawnPos = Levels[Levels.Count - 1].transform.position + offset;
         Levels.Add(Instantiate(Instance, SpawnPos, Quaternion.identity));

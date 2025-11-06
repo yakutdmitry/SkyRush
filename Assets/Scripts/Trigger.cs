@@ -26,16 +26,18 @@ public class Trigger : MonoBehaviour
         Debug.Log("Collision");
         if (other.gameObject.CompareTag("Player") && _PlayerController.count != 0)
         {
-            // _PlayerController.Collected = false;
-            _GameManager.Spawn();
+            _PlayerController.Collected = false;
             Debug.Log(_PlayerController.count);
+            _PlayerController.count -= 1f;
             
+            Debug.Log("AAAAA");
         }
 
-        if (other.gameObject.CompareTag("Player") && !_PlayerController.Collected && _PlayerController.count != 0 )
+        else 
         {
+            Debug.Log("BBBBBB");
+
             _GameManager.Spawn();
-            _PlayerController.count--;
             Debug.Log(_PlayerController.count);
             circleSpawn = GameObject.FindWithTag("Target").GetComponent<CircleSpawn>();
             circleSpawn.SpawnNextLevel();

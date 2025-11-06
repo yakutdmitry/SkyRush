@@ -15,7 +15,7 @@ public class playerController : MonoBehaviour
     private Animator _animator;
     public bool Collected = false;
     public float targetZAngle = 45f;
-    public int count;
+    public float count;
     public int circlesCount;
     
 
@@ -74,7 +74,7 @@ public class playerController : MonoBehaviour
         if (justJumped)
         {
             justJumped = false;
-            return; // пропускаем перенаправление, чтобы сохранить импульс
+            return; 
         }
     
         Vector3 velocity = rb.linearVelocity;
