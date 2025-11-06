@@ -16,6 +16,7 @@ public class playerController : MonoBehaviour
     public bool Collected = false;
     public float targetZAngle = 45f;
     public int count;
+    public int circlesCount;
     
 
     private void Start()

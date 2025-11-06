@@ -16,11 +16,12 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            circleSpawn = GameObject.FindWithTag("Target").GetComponent<CircleSpawn>();
-            circleSpawn.SpawnNextLevel();
-        }
+        // if (other.gameObject.CompareTag("Player"))
+        // {
+        //     circleSpawn = GameObject.FindWithTag("Target").GetComponent<CircleSpawn>();
+        //     // circleSpawn.SpawnNextLevel();
+        //     _GameManager.Spawn();
+        // }
         
         Debug.Log("Collision");
         if (other.gameObject.CompareTag("Player") && _PlayerController.count != 0)
@@ -31,12 +32,14 @@ public class Trigger : MonoBehaviour
             
         }
 
-        if (other.gameObject.CompareTag("Player") && !_PlayerController.Collected && _PlayerController.count != 0)
+        if (other.gameObject.CompareTag("Player") && !_PlayerController.Collected && _PlayerController.count != 0 )
         {
             _GameManager.Spawn();
             _PlayerController.count--;
             Debug.Log(_PlayerController.count);
-
+            circleSpawn = GameObject.Find("Target_" + _PlayerController.circlesCount + "(Clone)").GetComponent<CircleSpawn>();
+            circleSpawn.SpawnNextLevel();
+            Debug.Log(circleSpawn);
         }
 
         if (other.gameObject.CompareTag("Player") && _PlayerController.count == 0)

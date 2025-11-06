@@ -31,6 +31,7 @@ public class CircleSpawn : MonoBehaviour
 
     private void Update()
     {
+        _PlayerController.circlesCount = circlesSpawned;
         if (_PlayerController.count != 0) _PlayerController.Collected = true;
         if (circlesSpawned == spawnLimit)
         {
@@ -60,7 +61,7 @@ public class CircleSpawn : MonoBehaviour
         }
         else
         {
-            basePosition = Levels[Levels.Count - 1].transform.position;
+            basePosition = Levels[Levels.Count -1].transform.position;
         }
 
         float randomX = Random.Range(minX, maxX);
@@ -68,9 +69,13 @@ public class CircleSpawn : MonoBehaviour
         float newZ = basePosition.z + zOffset;
 
         Vector3 spawnPosition = new Vector3(randomX, randomY, newZ);
-            
-        Levels.Add(Instantiate(Instance, spawnPosition, Quaternion.identity));
-        // Destroy(Levels[Levels.Count - 3]);
+        GameObject newInstance = Instantiate(Instance, spawnPosition, Quaternion.identity);
+        newInstance.name = "Target_" + circlesSpawned ;
+        
+        Levels.Add(Instantiate(newInstance));
+        Destroy(Levels[Levels.Count - 2]);
+        
+        
 
         circlesSpawned++;
     }
