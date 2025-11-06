@@ -8,8 +8,9 @@ public class CircleSpawn : MonoBehaviour
 {
     public playerController _PlayerController;
     public GameObject Instance;
-    public List<GameObject> Levels = new List<GameObject>();
+    public static List<GameObject> Levels = new List<GameObject>();
     
+
     
     // [SerializeField] private Collider Collider;
     
@@ -27,6 +28,13 @@ public class CircleSpawn : MonoBehaviour
     private void Start()
     {
         _PlayerController = GameObject.Find("Player").GetComponent<playerController>();
+        
+        if (!Levels.Contains(gameObject))
+        {
+            Levels.Add(gameObject);
+            gameObject.name = "Target_0"; 
+        }
+
     }
 
     private void Update()
@@ -71,7 +79,6 @@ public class CircleSpawn : MonoBehaviour
         Vector3 spawnPosition = new Vector3(randomX, randomY, newZ);
         GameObject newInstance = Instantiate(Instance, spawnPosition, Quaternion.identity);
         newInstance.name = "Target_" + circlesSpawned ;
-        
         Levels.Add(Instantiate(newInstance));
         Destroy(Levels[Levels.Count - 2]);
         

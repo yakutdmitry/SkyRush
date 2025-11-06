@@ -82,7 +82,7 @@ public class playerController : MonoBehaviour
         Vector3 vertical = Vector3.Project(velocity, Vector3.up);
         Vector3 horizontal = velocity - vertical;
         
-        float dampingFactor = 0.9990f;
+        float dampingFactor = 0.9980f;
         horizontal *= Mathf.Pow(dampingFactor, Time.fixedDeltaTime * 160f);
 
     
