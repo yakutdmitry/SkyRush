@@ -1006,8 +1006,12 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 980755320884859223, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
+      propertyPath: count
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 980755320884859223, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
       propertyPath: Collected
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 980755320884859223, guid: e5841deea4186a049ade757cfc54fd7a, type: 3}
       propertyPath: jumpForce
